@@ -1,9 +1,19 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
+// ✅ Certifique-se de que no arquivo app.routes.ts você exporta corretamente
+// Exemplo:
+// export const appRoutes: Routes = [
+//   { path: '', component: LoginComponent }
+// ];
+
+import { appRoutes } from './app.routes';
+
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes),
+    provideClientHydration(withEventReplay()),
+  ],
 };
