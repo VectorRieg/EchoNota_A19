@@ -3,7 +3,5 @@ export class Usuario {
   nome: string = '';
   email: string = '';
   senha?: string;
-  tipo: 'admin' | 'professor' | 'aluno' = 'aluno';
-  ativo: boolean = true;
-  criadoEm: Date = new Date();
+  tipoUsuario: 'admin' | 'professor' | 'aluno' = 'aluno'; // Com o aluno = aluno ele deixa com que não exista outro tipo de usuario
 }
